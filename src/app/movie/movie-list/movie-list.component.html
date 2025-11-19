@@ -1,31 +1,35 @@
-<h1>Lista de Películas</h1>
-<div>
-  <div>
-    @if(selected){
-    <app-movie-detail [movie]="selectedMovie"></app-movie-detail>
-    }
-    <table>
-      <tr>
-        <th scope="col">Título</th>
-        <th scope="col">Poster</th>
-        <th scope="col">Director</th>
-        <th scope="col">Año</th>
-        <th scope="col">Calificación</th>
-      </tr>
-      @for(movie of movies; track movie.id) {
+<h1 class="text-center my-4">Lista de Películas</h1>
+<div class="container-fluid py-4" style="background-color: #a9d2f3; min-height: 100vh;">
 
-      <tr (click)="onSelect(movie)">
-        <td>
-          <b>{{ movie.title }}</b>
-        </td>
-        <td>
-          <img class="poster-img" [src]="movie.posterImageUrl" alt="{{ movie.title }} poster" />
-        </td>
-        <td>{{ movie.director }}</td>
-        <td>{{ movie.releaseYear }}</td>
-        <td>{{ movie.rating }}</td>
-      </tr>
-      }
-    </table>
+<div class="container">
+  <div class="row">
+
+    @for (movie of movies; track movie.id) {
+
+      <div class="col-md-3 mb-4">
+        <div class="card movie-card shadow-sm border-0" (click)="onSelect(movie)" style="cursor: pointer;">
+          
+          <img 
+            [src]="movie.posterImageUrl"
+            class="card-img-top"
+            alt="{{ movie.title }}"
+            style="height: 350px; object-fit: cover;"
+          />
+
+          <div class="card-body">
+            <h5 class="card-title text-center">{{ movie.title }}</h5>
+
+            <p class="card-text mt-2">
+              <strong>Director:</strong> {{ movie.director }}<br />
+              <strong>Año:</strong> {{ movie.releaseYear }}
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    }
+
   </div>
 </div>
+

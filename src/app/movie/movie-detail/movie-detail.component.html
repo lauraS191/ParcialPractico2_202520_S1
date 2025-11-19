@@ -1,17 +1,40 @@
-<div>
-  <h2>{{ movie?.title }}</h2>
-  <div>
-    <img class="poster-detail-img" [src]="movie?.posterImageUrl" alt="{{ movie?.title }} poster" />
-  </div>
-  <div>
-    <p><strong>Director:</strong> {{ movie?.director }}</p>
-    <p><strong>Año de lanzamiento:</strong> {{ movie?.releaseYear }}</p>
-    <p><strong>Calificación:</strong> {{ movie?.rating }}</p>
-    <p><strong>Género:</strong> {{ movie?.genre }}</p>
-    <p><strong>Sinopsis:</strong> {{ movie?.description }}</p>
-  </div>
-  <div>
-    <h3>Reparto:</h3>
-    <app-actor-list [actors]="movie?.cast"></app-actor-list>
+<div class="container-fluid py-4" style="background-color: #a9d2f3; min-height: 100vh;">
+
+  <h2 class="text-center mb-4">{{ movie?.title }}</h2>
+
+  <div class="row">
+
+    <div class="col-md-8">
+      <h4><strong>Sinopsis:</strong></h4>
+      <p>{{ movie?.description }}</p>
+
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <p><strong>Director:</strong> {{ movie?.director }}</p>
+          <p><strong>Calificación:</strong> {{ movie?.rating }}</p>
+        </div>
+
+        <div class="col-md-6">
+          <p><strong>Año de lanzamiento:</strong> {{ movie?.releaseYear }}</p>
+          <p><strong>Género:</strong> {{ movie?.genre }}</p>
+          <p><strong>Duración:</strong> {{ durationFormatted }}</p>
+        </div>
+      </div>
+
+      <h4 class="mt-4"><strong>Reparto:</strong></h4>
+      <app-actor-list [actors]="movie?.cast || []"></app-actor-list>
+
+      <button class="btn btn-primary mt-4" routerLink="/movies">Regresar</button>
+    </div>
+
+    <div class="col-md-4 text-center">
+      <img
+        class="img-fluid poster-detail-img shadow"
+        [src]="movie?.posterImageUrl"
+        alt="{{ movie?.title }} poster"
+        style="max-width: 350px; border-radius: 8px;"
+      />
+    </div>
+
   </div>
 </div>

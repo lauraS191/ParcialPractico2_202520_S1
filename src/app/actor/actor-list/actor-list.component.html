@@ -1,5 +1,8 @@
+
+<p><strong>Promedio de Popularidad:</strong> {{ averagePopularity }}</p>
+
 <ul>
-  @for(actor of actors; track actor.id) {
-  <li>{{ actor.name }}</li>
+  @for (actor of actors; track actor.id) {
+    <li>{{ actor.name }} — Popularidad: {{ actor.popularity }}</li>
   }
 </ul>
