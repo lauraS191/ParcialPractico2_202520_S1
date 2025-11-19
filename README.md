@@ -1,4 +1,4 @@
 # Parcial Práctico 2
 
-- Nombre:
-- código:
+- Nombre: Laura Sanchez Bernal
+- código: 202411353
